@@ -1,10 +1,12 @@
 import React from "react";
 import classes from './Cell.module.css';
 
-const Cell = () => {
+const Cell = ({text}) => {
   return (
     <div className={classes.Cell}>
-      &nbsp; 
+      <div className={text !== "blank" ? classes.ColoredCell : null}>
+      {text !== "blank" ? text : "\u00A0"}
+      </div>
     </div>
   );
 }

@@ -3,3 +3,7 @@
     display: inline;
     position: relative;
 }
+
+.ColoredCell {
+    background-color: rgb(12, 248, 12);
+}
