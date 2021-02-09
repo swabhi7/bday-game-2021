@@ -4,7 +4,7 @@ import classes from './WishText.module.css';
 const WishText = () => {
   return (
     <div className={classes.WishText}>
-      Wish Text
+      <strong>HAPPY BIRTHDAY MOTU</strong>
     </div>
   );
 }

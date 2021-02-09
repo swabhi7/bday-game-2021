@@ -6,6 +6,7 @@
 
 .ColoredCell {
     background-color: rgb(12, 248, 12);
+    font-weight: bolder;
 }
 
 .PlayerCell {

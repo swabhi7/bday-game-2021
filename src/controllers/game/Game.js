@@ -17,7 +17,7 @@ class Game extends Component {
   componentDidMount() {
     setInterval(() => {
       //console.log(this.state.row);
-      if (this.state.row >= 29) {
+      if (this.state.row >= 25) {
         this.setState({
           row: 0,
           col: Math.floor(Math.random() * 10),
