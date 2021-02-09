@@ -1,12 +1,12 @@
 import React from "react";
-import classes from './ControlButton.module.css';
+import classes from "./ControlButton.module.css";
 
-const ControlButton = () => {
+const ControlButton = ({ clicked, direction }) => {
   return (
-    <div className={classes.ControlButton}>
-      Control Button
+    <div className={classes.ControlButton} onClick={() => clicked(direction)}>
+      {direction}
     </div>
   );
-}
+};
 
 export default ControlButton;
