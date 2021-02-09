@@ -3,6 +3,9 @@ import classes from './Cell.module.css';
 
 const Cell = ({text, player}) => {
   let cellClasses = [];
+  if (text !== "blank" && player) {
+    alert("Collision");
+  }
   cellClasses = text !== "blank" ? [...cellClasses, classes.ColoredCell] : cellClasses;
   cellClasses = player === true ? [...cellClasses, classes.PlayerCell] : cellClasses;
   return (
