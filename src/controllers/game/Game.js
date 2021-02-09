@@ -12,6 +12,26 @@ class Game extends Component {
     cellText: ["H", "A", "P", "Y", "B", "I", "R", "T", "D", "M", "O", "U"][
       Math.floor(Math.random() * 12)
     ],
+    numberOfLettersHit: 0,
+    target: [
+      ["H", false],
+      ["A", false],
+      ["P", false],
+      ["P", false],
+      ["Y", false],
+      ["B", false],
+      ["I", false],
+      ["R", false],
+      ["T", false],
+      ["H", false],
+      ["D", false],
+      ["A", false],
+      ["Y", false],
+      ["M", false],
+      ["O", false],
+      ["T", false],
+      ["U", false],
+    ]
   };
 
   numberOfRows = 20;
@@ -19,7 +39,7 @@ class Game extends Component {
   componentDidMount() {
     setInterval(() => {
       //console.log(this.state.row);
-      if (this.state.row >= this.numberOfRows) {
+      if (this.state.row > this.numberOfRows) {
         this.setState({
           row: 0,
           col: Math.floor(Math.random() * 10),
@@ -51,12 +71,24 @@ class Game extends Component {
       : this.setState({ playerCol: this.state.playerCol + 1 });
   };
 
+  onCollision = (letter) => {
+    const targetCopy = [...this.state.target];
+    if (letter !== targetCopy[this.state.numberOfLettersHit][0]) {
+      // alert("Game Over!", letter, targetCopy[this.state.numberOfLettersHit][0]);
+    }
+    else {
+      targetCopy[this.state.numberOfLettersHit][1] = true;
+      this.setState({target: targetCopy, numberOfLettersHit: this.state.numberOfLettersHit + 1});
+    }
+  };
+
   render() {
     console.log(this.state.row);
     return (
       <div className={classes.Game}>
-        <WishText />
+        <WishText target={this.state.target} />
         <Stage
+          onCollision={this.onCollision}
           currentRow={this.state.row}
           currentCol={this.state.col}
           playerCol={this.state.playerCol}

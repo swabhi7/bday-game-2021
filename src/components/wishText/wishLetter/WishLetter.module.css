@@ -1,3 +1,8 @@
-.WishLetter {
+.NotDone {
     font-weight: bolder;
+}
+
+.Done {
+    font-weight: bolder;
+    color: green;
 }

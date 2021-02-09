@@ -1,10 +1,10 @@
 import React from "react";
 import classes from './Cell.module.css';
 
-const Cell = ({text, player}) => {
+const Cell = ({text, player, onCollision}) => {
   let cellClasses = [];
   if (text !== "blank" && player) {
-    alert("Collision");
+    onCollision(text);
   }
   cellClasses = text !== "blank" ? [...cellClasses, classes.ColoredCell] : cellClasses;
   cellClasses = player === true ? [...cellClasses, classes.PlayerCell] : cellClasses;

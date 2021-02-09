@@ -2,7 +2,7 @@ import React from "react";
 import Cell from "./cell/Cell";
 import classes from "./Stage.module.css";
 
-const Stage = ({ currentRow, currentCol, playerCol, cellText, numberOfRows }) => {
+const Stage = ({ currentRow, currentCol, playerCol, cellText, numberOfRows, onCollision }) => {
   // console.log(playerCol);
   let cells = [];
   for (let row = 0; row < numberOfRows; row++) {
@@ -11,6 +11,7 @@ const Stage = ({ currentRow, currentCol, playerCol, cellText, numberOfRows }) =>
       row === numberOfRows - 1
         ? cells[row].push(
             <Cell
+              onCollision={onCollision}
               text={row === currentRow && col === currentCol ? cellText : "blank"}
               player={row === numberOfRows - 1 && col === playerCol ? true : false}
             />
