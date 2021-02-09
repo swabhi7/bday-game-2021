@@ -14,10 +14,12 @@ class Game extends Component {
     ],
   };
 
+  numberOfRows = 20;
+
   componentDidMount() {
     setInterval(() => {
       //console.log(this.state.row);
-      if (this.state.row >= 25) {
+      if (this.state.row >= this.numberOfRows) {
         this.setState({
           row: 0,
           col: Math.floor(Math.random() * 10),
@@ -59,6 +61,7 @@ class Game extends Component {
           currentCol={this.state.col}
           playerCol={this.state.playerCol}
           cellText={this.state.cellText}
+          numberOfRows={this.numberOfRows}
         />
         <div className={classes.ButtonsArea}>
           <div>

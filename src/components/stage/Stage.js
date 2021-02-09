@@ -2,17 +2,17 @@ import React from "react";
 import Cell from "./cell/Cell";
 import classes from "./Stage.module.css";
 
-const Stage = ({ currentRow, currentCol, playerCol, cellText }) => {
+const Stage = ({ currentRow, currentCol, playerCol, cellText, numberOfRows }) => {
   // console.log(playerCol);
   let cells = [];
-  for (let row = 0; row < 25; row++) {
+  for (let row = 0; row < numberOfRows; row++) {
     cells[row] = [];
     for (let col = 0; col < 10; col++) {
-      row === 24
+      row === numberOfRows - 1
         ? cells[row].push(
             <Cell
               text={row === currentRow && col === currentCol ? cellText : "blank"}
-              player={row === 24 && col === playerCol ? true : false}
+              player={row === numberOfRows - 1 && col === playerCol ? true : false}
             />
           )
         : cells[row].push(
