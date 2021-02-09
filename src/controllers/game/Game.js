@@ -7,12 +7,39 @@ import classes from "./Game.module.css";
 class Game extends Component {
   state = {
     row: 0,
+    col: Math.floor(Math.random() * 10),
     playerCol: 4,
+    cellText: ["H", "A", "P", "Y", "B", "I", "R", "T", "D", "M", "O", "U"][
+      Math.floor(Math.random() * 12)
+    ],
   };
 
   componentDidMount() {
     setInterval(() => {
-      this.setState({ row: this.state.row + 1 });
+      //console.log(this.state.row);
+      if (this.state.row >= 29) {
+        this.setState({
+          row: 0,
+          col: Math.floor(Math.random() * 10),
+          cellText: [
+            "H",
+            "A",
+            "P",
+            "Y",
+            "B",
+            "I",
+            "R",
+            "T",
+            "D",
+            "M",
+            "O",
+            "U",
+          ][Math.floor(Math.random() * 12)],
+        });
+        this.setState({ col: Math.floor(Math.random() * 10) });
+      } else {
+        this.setState({ row: this.state.row + 1 });
+      }
     }, 50);
   }
 
@@ -24,11 +51,15 @@ class Game extends Component {
 
   render() {
     console.log(this.state.row);
-
     return (
       <div className={classes.Game}>
         <WishText />
-        <Stage currentRow={this.state.row} playerCol={this.state.playerCol} />
+        <Stage
+          currentRow={this.state.row}
+          currentCol={this.state.col}
+          playerCol={this.state.playerCol}
+          cellText={this.state.cellText}
+        />
         <div className={classes.ButtonsArea}>
           <div>
             <ControlButton
