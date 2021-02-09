@@ -7,3 +7,7 @@
 .ColoredCell {
     background-color: rgb(12, 248, 12);
 }
+
+.PlayerCell {
+    background-color: blue;
+}

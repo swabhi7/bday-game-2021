@@ -8,7 +8,7 @@ const Stage = ({currentRow}) => {
   for (let row = 0; row < 30; row++) {
     cells[row] = [];
     for (let col = 0; col < 10; col++) {
-      cells[row].push(<Cell text={row === currentRow && col === 3 ? "H" : "blank"}/>);
+      row === 29 ? cells[row].push(<Cell text={row === currentRow && col === 3 ? "H" : "blank"} player={col === 4 ? true : false}/>) : cells[row].push(<Cell text={row === currentRow && col === 3 ? "H" : "blank"}/>);
     }
   }
 

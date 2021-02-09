@@ -1,10 +1,13 @@
 import React from "react";
 import classes from './Cell.module.css';
 
-const Cell = ({text}) => {
+const Cell = ({text, player}) => {
+  let cellClasses = [];
+  cellClasses = text !== "blank" ? [...cellClasses, classes.ColoredCell] : cellClasses;
+  cellClasses = player === true ? [...cellClasses, classes.PlayerCell] : cellClasses;
   return (
     <div className={classes.Cell}>
-      <div className={text !== "blank" ? classes.ColoredCell : null}>
+      <div className={cellClasses}>
       {text !== "blank" ? text : "\u00A0"}
       </div>
     </div>
