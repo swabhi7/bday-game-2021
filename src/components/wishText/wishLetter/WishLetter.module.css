@@ -1,8 +1,12 @@
 .NotDone {
     font-weight: bolder;
+    font-size: 130%;
+    color: #ccc;
 }
 
 .Done {
     font-weight: bolder;
-    color: green;
+    font-size: 130%;
+    color: #39ff14;
+    text-shadow: 1px 1px 8px #39ff14;
 }
