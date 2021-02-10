@@ -87,11 +87,14 @@ class Game extends Component {
       return Math.floor(Math.random() * 4 + 7); 
     }
     if (numberOfLettersHit === 16) {
-      return Math.floor(Math.random() * 4 + 7); 
+      return Math.floor(Math.random() * 4 + 8); 
     }
   }
 
   componentDidMount() {
+    if (this.state.numberOfLettersHit >= 16) {
+      alert("You Win! Happy Birthday Motu!");
+    }
     setInterval(() => {
       //console.log(this.state.row);
       if (this.state.row > this.numberOfRows) {
