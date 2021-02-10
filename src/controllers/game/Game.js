@@ -31,12 +31,12 @@ class Game extends Component {
       ["O", false],
       ["T", false],
       ["U", false],
-    ]
+    ],
   };
 
   numberOfRows = 20;
 
-  getRandomNumberBetween (numberOfLettersHit) {
+  getRandomNumberBetween(numberOfLettersHit) {
     console.log(numberOfLettersHit);
     if (numberOfLettersHit === 0) {
       return Math.floor(Math.random() * 4); // 0 to 3
@@ -51,43 +51,43 @@ class Game extends Component {
       return Math.floor(Math.random() * 4 + 1); // 1 to 4
     }
     if (numberOfLettersHit === 4) {
-      return Math.floor(Math.random() * 4 + 2); 
+      return Math.floor(Math.random() * 4 + 2);
     }
     if (numberOfLettersHit === 5) {
-      return Math.floor(Math.random() * 4 + 3); 
+      return Math.floor(Math.random() * 4 + 3);
     }
     if (numberOfLettersHit === 6) {
-      return Math.floor(Math.random() * 4 + 5); 
+      return Math.floor(Math.random() * 4 + 5);
     }
     if (numberOfLettersHit === 7) {
-      return Math.floor(Math.random() * 4 + 5); 
+      return Math.floor(Math.random() * 4 + 5);
     }
     if (numberOfLettersHit === 8) {
-      return Math.floor(Math.random() * 4 + 6); 
+      return Math.floor(Math.random() * 4 + 6);
     }
     if (numberOfLettersHit === 9) {
-      return Math.floor(Math.random() * 4); 
+      return Math.floor(Math.random() * 4);
     }
     if (numberOfLettersHit === 10) {
-      return Math.floor(Math.random() * 4 + 7); 
+      return Math.floor(Math.random() * 4 + 7);
     }
     if (numberOfLettersHit === 11) {
-      return Math.floor(Math.random() * 4); 
+      return Math.floor(Math.random() * 4);
     }
     if (numberOfLettersHit === 12) {
-      return Math.floor(Math.random() * 4 + 2); 
+      return Math.floor(Math.random() * 4 + 2);
     }
     if (numberOfLettersHit === 13) {
-      return Math.floor(Math.random() * 4 + 7); 
+      return Math.floor(Math.random() * 4 + 7);
     }
     if (numberOfLettersHit === 14) {
-      return Math.floor(Math.random() * 4 + 7); 
+      return Math.floor(Math.random() * 4 + 7);
     }
     if (numberOfLettersHit === 15) {
-      return Math.floor(Math.random() * 4 + 7); 
+      return Math.floor(Math.random() * 4 + 7);
     }
     if (numberOfLettersHit === 16) {
-      return Math.floor(Math.random() * 4 + 8); 
+      return Math.floor(Math.random() * 4 + 8);
     }
   }
 
@@ -125,21 +125,23 @@ class Game extends Component {
 
   onControlButtonClick = (direction) => {
     direction === "LEFT"
-      ? this.setState({ playerCol: this.state.playerCol - 1 })
-      : this.setState({ playerCol: this.state.playerCol + 1 });
+      ? (this.state.playerCol > 0 ? this.setState({ playerCol: this.state.playerCol - 1 }) : this.setState({playerCol: 0}))
+      : (this.state.playerCol < 9 ? this.setState({ playerCol: this.state.playerCol + 1 }) : this.setState({playerCol: 9}));
   };
 
   onCollision = (letter) => {
     const targetCopy = [...this.state.target];
-    this.setState({row: 100});
+    this.setState({ row: 100 });
     if (letter !== targetCopy[this.state.numberOfLettersHit][0]) {
       console.log(letter, targetCopy[this.state.numberOfLettersHit][0]);
       alert("Game Over! Retry?");
       window.location.reload();
-    }
-    else {
+    } else {
       targetCopy[this.state.numberOfLettersHit][1] = true;
-      this.setState({target: targetCopy, numberOfLettersHit: this.state.numberOfLettersHit + 1});
+      this.setState({
+        target: targetCopy,
+        numberOfLettersHit: this.state.numberOfLettersHit + 1,
+      });
     }
   };
 
