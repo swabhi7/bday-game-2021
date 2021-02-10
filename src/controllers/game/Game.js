@@ -73,8 +73,11 @@ class Game extends Component {
 
   onCollision = (letter) => {
     const targetCopy = [...this.state.target];
+    this.setState({row: 100});
     if (letter !== targetCopy[this.state.numberOfLettersHit][0]) {
-      // alert("Game Over!", letter, targetCopy[this.state.numberOfLettersHit][0]);
+      console.log(letter, targetCopy[this.state.numberOfLettersHit][0]);
+      alert("Game Over! Retry?");
+      window.location.reload();
     }
     else {
       targetCopy[this.state.numberOfLettersHit][1] = true;
@@ -83,7 +86,7 @@ class Game extends Component {
   };
 
   render() {
-    console.log(this.state.row);
+    // console.log(this.state.row);
     return (
       <div className={classes.Game}>
         <WishText target={this.state.target} />
