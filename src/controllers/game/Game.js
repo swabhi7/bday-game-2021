@@ -6,6 +6,7 @@ import classes from "./Game.module.css";
 
 class Game extends Component {
   state = {
+    won: false,
     row: 0,
     col: Math.floor(Math.random() * 10),
     playerCol: 4,
@@ -39,55 +40,55 @@ class Game extends Component {
   getRandomNumberBetween(numberOfLettersHit) {
     console.log(numberOfLettersHit);
     if (numberOfLettersHit === 0) {
-      return Math.floor(Math.random() * 4); // 0 to 3
+      return Math.floor(Math.random() * 3); // 0 to 3
     }
     if (numberOfLettersHit === 1) {
-      return Math.floor(Math.random() * 4); // 0 to 3
+      return Math.floor(Math.random() * 3); // 0 to 3
     }
     if (numberOfLettersHit === 2) {
-      return Math.floor(Math.random() * 4 + 1); // 1 to 4
+      return Math.floor(Math.random() * 3 + 1); // 1 to 4
     }
     if (numberOfLettersHit === 3) {
-      return Math.floor(Math.random() * 4 + 1); // 1 to 4
+      return Math.floor(Math.random() * 3 + 1); // 1 to 4
     }
     if (numberOfLettersHit === 4) {
-      return Math.floor(Math.random() * 4 + 2);
+      return Math.floor(Math.random() * 3 + 2);
     }
     if (numberOfLettersHit === 5) {
-      return Math.floor(Math.random() * 4 + 3);
+      return Math.floor(Math.random() * 3 + 3);
     }
     if (numberOfLettersHit === 6) {
-      return Math.floor(Math.random() * 4 + 5);
+      return Math.floor(Math.random() * 3 + 5);
     }
     if (numberOfLettersHit === 7) {
-      return Math.floor(Math.random() * 4 + 5);
+      return Math.floor(Math.random() * 3 + 5);
     }
     if (numberOfLettersHit === 8) {
-      return Math.floor(Math.random() * 4 + 6);
+      return Math.floor(Math.random() * 3 + 6);
     }
     if (numberOfLettersHit === 9) {
-      return Math.floor(Math.random() * 4);
+      return Math.floor(Math.random() * 3);
     }
     if (numberOfLettersHit === 10) {
-      return Math.floor(Math.random() * 4 + 7);
+      return Math.floor(Math.random() * 3 + 7);
     }
     if (numberOfLettersHit === 11) {
-      return Math.floor(Math.random() * 4);
+      return Math.floor(Math.random() * 3);
     }
     if (numberOfLettersHit === 12) {
-      return Math.floor(Math.random() * 4 + 2);
+      return Math.floor(Math.random() * 3 + 2);
     }
     if (numberOfLettersHit === 13) {
-      return Math.floor(Math.random() * 4 + 7);
+      return Math.floor(Math.random() * 3 + 7);
     }
     if (numberOfLettersHit === 14) {
-      return Math.floor(Math.random() * 4 + 7);
+      return Math.floor(Math.random() * 3 + 8);
     }
     if (numberOfLettersHit === 15) {
-      return Math.floor(Math.random() * 4 + 7);
+      return Math.floor(Math.random() * 3 + 6);
     }
     if (numberOfLettersHit === 16) {
-      return Math.floor(Math.random() * 4 + 8);
+      return Math.floor(Math.random() * 3 + 9);
     }
   }
 
@@ -142,7 +143,11 @@ class Game extends Component {
         target: targetCopy,
         numberOfLettersHit: this.state.numberOfLettersHit + 1,
       });
+      if (this.state.numberOfLettersHit >= 16) {
+        this.setState({won: true});
+      }
     }
+
   };
 
   render() {
@@ -150,14 +155,14 @@ class Game extends Component {
     return (
       <div className={classes.Game}>
         <WishText target={this.state.target} />
-        <Stage
+        {this.state.won ? <div>Won</div> : <Stage
           onCollision={this.onCollision}
           currentRow={this.state.row}
           currentCol={this.state.col}
           playerCol={this.state.playerCol}
           cellText={this.state.cellText}
           numberOfRows={this.numberOfRows}
-        />
+        />}
         <div className={classes.ButtonsArea}>
           <div>
             <ControlButton
