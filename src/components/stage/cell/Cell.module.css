@@ -1,5 +1,5 @@
 .Cell {
-    border: 1px solid gray;
+    border: 1px solid #444;
     display: inline;
     position: relative;
 }
