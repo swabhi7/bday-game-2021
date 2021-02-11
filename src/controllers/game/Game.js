@@ -3,6 +3,7 @@ import ControlButton from "../../components/controlButton/ControlButton";
 import Stage from "../../components/stage/Stage";
 import WishText from "../../components/wishText/WishText";
 import classes from "./Game.module.css";
+import motuImage from "../../images/motu.jpg";
 
 class Game extends Component {
   state = {
@@ -155,7 +156,7 @@ class Game extends Component {
     return (
       <div className={classes.Game}>
         <WishText target={this.state.target} />
-        {this.state.won ? <div>Won</div> : <Stage
+        {this.state.won ? <img className={classes.MotuImage} src={motuImage} alt="Motu's img" /> : <Stage
           onCollision={this.onCollision}
           currentRow={this.state.row}
           currentCol={this.state.col}
