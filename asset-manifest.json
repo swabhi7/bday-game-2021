@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/bday-game-2021/static/css/main.4b28105f.chunk.css",
-    "main.js": "/bday-game-2021/static/js/main.a5ef2d9d.chunk.js",
-    "main.js.map": "/bday-game-2021/static/js/main.a5ef2d9d.chunk.js.map",
+    "main.js": "/bday-game-2021/static/js/main.d4572af9.chunk.js",
+    "main.js.map": "/bday-game-2021/static/js/main.d4572af9.chunk.js.map",
     "runtime-main.js": "/bday-game-2021/static/js/runtime-main.2bc0499e.js",
     "runtime-main.js.map": "/bday-game-2021/static/js/runtime-main.2bc0499e.js.map",
     "static/js/2.6d04de01.chunk.js": "/bday-game-2021/static/js/2.6d04de01.chunk.js",
@@ -17,6 +17,6 @@
     "static/js/runtime-main.2bc0499e.js",
     "static/js/2.6d04de01.chunk.js",
     "static/css/main.4b28105f.chunk.css",
-    "static/js/main.a5ef2d9d.chunk.js"
+    "static/js/main.d4572af9.chunk.js"
   ]
 }
