@@ -34,7 +34,7 @@ class Game extends Component {
     ],
   };
 
-  numberOfRows = 25;
+  numberOfRows = Math.floor(window.innerHeight * 24 / 717);
 
   getRandomNumberBetween(numberOfLettersHit) {
     console.log(numberOfLettersHit);
