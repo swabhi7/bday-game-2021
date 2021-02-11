@@ -34,7 +34,7 @@ class Game extends Component {
     ],
   };
 
-  numberOfRows = 20;
+  numberOfRows = 25;
 
   getRandomNumberBetween(numberOfLettersHit) {
     console.log(numberOfLettersHit);
@@ -120,7 +120,7 @@ class Game extends Component {
       } else {
         this.setState({ row: this.state.row + 1 });
       }
-    }, 50);
+    }, 80);
   }
 
   onControlButtonClick = (direction) => {
